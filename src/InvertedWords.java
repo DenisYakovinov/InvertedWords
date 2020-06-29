@@ -12,15 +12,15 @@ public class InvertedWords {
     private static Map<String, String> mapOfWordsForResult = new LinkedHashMap<>();
 
     public static void main(String[] args) {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            filePath = reader.readLine();
+        try (BufferedReader readerFromKeyboard = new BufferedReader(new InputStreamReader(System.in))) {
+            filePath = readerFromKeyboard.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        try (BufferedReader reader1 = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8))) {
-            while (reader1.ready()) {
-                allWordsFromFileBuilderStr.append(reader1.readLine()).append("\n");
+        try (BufferedReader readerWordsFromFile = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8))) {
+            while (readerWordsFromFile.ready()) {
+                allWordsFromFileBuilderStr.append(readerWordsFromFile.readLine()).append("\n");
             }
         } catch (IOException e) {
             System.out.printf("File Name: %s %s", e.getMessage(), e.getClass().getSimpleName());
