@@ -7,7 +7,7 @@ import java.util.*;
 
 public class InvertedWords {
     private static List<Pair> result = new LinkedList<>();
-    private  static String filePath = "";
+    private static String filePath = "";
     private static StringBuilder allWordsFromFileBuilderStr = new StringBuilder();
     private static Map<String, String> mapOfWordsForResult = new LinkedHashMap<>();
 
@@ -20,13 +20,12 @@ public class InvertedWords {
 
         try (BufferedReader reader1 = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8))) {
             while (reader1.ready()) {
-               allWordsFromFileBuilderStr.append(reader1.readLine()).append("\n");
+                allWordsFromFileBuilderStr.append(reader1.readLine()).append("\n");
             }
         } catch (IOException e) {
             System.out.printf("File Name: %s %s", e.getMessage(), e.getClass().getSimpleName());
         }
         String allWordsFromFile = allWordsFromFileBuilderStr.toString();
-        System.out.println(allWordsFromFile);
         String[] splitWords = allWordsFromFile.split("[ \\n]");
 
         for (int i = 0; i < splitWords.length; i++) {
